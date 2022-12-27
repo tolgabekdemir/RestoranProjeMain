@@ -19,12 +19,6 @@ namespace _21AralıkRestoran
         {
             InitializeComponent();
         }
-
-        private void frmKategoriIslemleri_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEkle_Click(object sender, EventArgs e)
         {
             kategori ent = new kategori();
