@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _21AralıkRestoran
 {
@@ -20,7 +22,7 @@ namespace _21AralıkRestoran
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
+        }//çıkış butonuna tıklandığında programı durdurma.
         private void btnGiris_Click(object sender, EventArgs e) {
 
             SqlConnection baglanti;
@@ -48,23 +50,30 @@ namespace _21AralıkRestoran
                 txtSifre.Clear();}
             baglanti.Close();
         }
-
-        private void btnGoster_Click(object sender, EventArgs e)
+        
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)//Şifreyi Göster gizle checkbox kodları.
         {
-            if(txtSifre.PasswordChar== '\0')
+            if (checkBox1.CheckState == CheckState.Checked)
             {
-                btnGizle.BringToFront();
-                txtSifre.PasswordChar = '*';
+                txtSifre.UseSystemPasswordChar = true;
+                checkBox1.Text = "Göster";
             }
+            else if (checkBox1.CheckState == CheckState.Unchecked)
+            {
+                txtSifre.UseSystemPasswordChar = false;
+                checkBox1.Text = "Gizle";
+            }
+
         }
 
-        private void btnGizle_Click(object sender, EventArgs e)
+        private void frmGiris_Load(object sender, EventArgs e)
         {
-            if (txtSifre.PasswordChar == '*')
-            {
-                btnGoster.BringToFront();
-                txtSifre.PasswordChar = '\0';
-            }
+            string bilgisayarAdi = Dns.GetHostName();
+            lblPcAdi.Text = "Bilgisayar Adı: " + bilgisayarAdi;
+            string ipAdresi = Dns.GetHostByName(bilgisayarAdi).AddressList[0].ToString();
+            lblIPAdresi.Text = "IP Adresi :" + ipAdresi;
+
+            txtSifre.UseSystemPasswordChar = true;//Uygulama açılır iken şifrenin gizli şekilde gelmesini sağlar
         }
     }
 }

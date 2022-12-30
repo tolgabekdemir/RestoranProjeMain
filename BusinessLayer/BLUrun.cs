@@ -10,14 +10,25 @@ namespace BusinessLayer
 {
     public class BLUrun
     {
-        public static int BLUrunEkle (urun p)
+        public static int BLUrunEkle(urun p)
         {
-            if (p.Adi != null && p.Adi.Length >= 2 && p.Adi.Length <= 30 )
+            if (p.Adi != null && p.Adi.Length >= 2 && p.Adi.Length <= 30)
             {
                 return DalUrun.UrunEkle(p);
             }
             return -1;
-
-        }
+        } //Urun ekle
+        public static List<urun> BLUrunListesi()
+        {
+            return DalUrun.UrunListesi();
+        } //Urun Listele
+        public static int BLUrunGuncelle(urun p)
+        {
+            if (p.Adi != null && p.Adi.Length >= 2 && p.Adi.Length <= 30)
+            {
+                return DalUrun.UrunGuncelle(p);
+            }
+            return -1;
+        } //Ürün Güncelle
     }
 }

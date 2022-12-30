@@ -16,18 +16,17 @@ namespace _21AralıkRestoran
         {
             InitializeComponent();
         }
-
-        private void btnMudurPaneli(object sender, EventArgs e)
+        private void btnUrunler_Click(object sender, EventArgs e)
         {
-            frmMudur frm = new frmMudur();
-            frm.MdiParent= this;
-            frm.FormBorderStyle= FormBorderStyle.None; 
-            frm.Show();
+            frmUrun frm = new frmUrun();
+            frm.ShowDialog();   
+
         }
 
-        private void btnKategori_Click(object sender, EventArgs e)
+        private void btnKategoriler_Click(object sender, EventArgs e)
         {
-
+            frmKategori frm = new frmKategori();
+            frm.ShowDialog();
         }
     }
 }

@@ -46,18 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMudur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMudur.Designer.cs">
-      <DependentUpon>frmMudur.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUrunIslm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUrunIslm.Designer.cs">
-      <DependentUpon>frmUrunIslm.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,12 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmMudur.resx">
-      <DependentUpon>frmMudur.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUrunIslm.resx">
-      <DependentUpon>frmUrunIslm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmGiris.resx">
       <DependentUpon>frmGiris.cs</DependentUpon>
     </EmbeddedResource>

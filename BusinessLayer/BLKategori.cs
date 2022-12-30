@@ -17,7 +17,18 @@ namespace BusinessLayer
                 return DalKategori.KategoriEkle(p); //şartlar sağlanıyor ise Data accses layer da urun ekle metotu döndür
             }
             return -1; //şartlar sağlanmıyor ise hiçbir şey yapma döndürme bişi
-
-        }
+        } //Kategori ekleme
+        public static List<kategori>BLKategoriListesi()
+        {
+            return DalKategori.KategoriListesi();
+        } //Kategori listele
+        public static int KategoriGuncelle(kategori p)
+        {
+            if(p.KategoriAdi != "" && p.KategoriAdi.Length >= 3 && p.KategoriAdi.Length<=30 )
+            {
+                return DalKategori.KategoriGuncelle(p);
+            }
+            return -1;
+        }  //Kategori Güncelle
     }
 }
