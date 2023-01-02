@@ -15,7 +15,7 @@ namespace DataAccessLayer
     {
         public static int UrunEkle(urun p) //entiti layerdaki urun classından parametre oluşturuldu
         {
-            SqlCommand ekle = new SqlCommand("insert into urunler(Adi,KategoriID,Fiyati,Stok,SevkiyatTarihi) values (@Adi,@KategoriID,@Fiyati,@Stok,@SevkiyatTarihi)",Baglanti.bgl);
+            SqlCommand ekle = new SqlCommand("insert into urunler(Adi,KategoriID,Fiyati,Stok,SevkiyatTarihi,Durum) values (@Adi,@KategoriID,@Fiyati,@Stok,@SevkiyatTarihi,1)",Baglanti.bgl);
             if (ekle.Connection.State != ConnectionState.Open)//Bağlantı açık değilse aç
             {
                 ekle.Connection.Open();
@@ -32,7 +32,7 @@ namespace DataAccessLayer
         public static List<urun>UrunListesi()
         {
             List<urun> urunler = new List<urun>();
-            SqlCommand komut = new SqlCommand("SELECT * FROM Urunler ORDER BY ID DESC;", Baglanti.bgl);
+            SqlCommand komut = new SqlCommand("SELECT * FROM Urunler where Durum=1 ORDER BY ID DESC", Baglanti.bgl);
             if(komut.Connection.State== ConnectionState.Closed)
             {
                 komut.Connection.Open();
@@ -69,6 +69,19 @@ namespace DataAccessLayer
             return guncelle.ExecuteNonQuery();
 
         } //Urun Guncelle
+        public static int UrunSil(urun p)
+        {
+            SqlCommand sil = new SqlCommand("UPDATE Urunler SET Durum='0' WHERE ID=@ID;", Baglanti.bgl);
+            if (sil.Connection.State != ConnectionState.Open)//Bağlantı açık değilse aç
+            {
+                sil.Connection.Open();
+            }
+            sil.Parameters.AddWithValue("@ID", p.ID);
+
+
+            return sil.ExecuteNonQuery();
+
+        } //Urun Sİlme
 
     }
 }

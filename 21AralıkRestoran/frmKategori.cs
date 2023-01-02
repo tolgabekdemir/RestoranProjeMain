@@ -44,7 +44,6 @@ namespace _21AralıkRestoran
                 MessageBox.Show("Kategori ID veya adı geçersiz.", "HATA");
             }
         }//Ekle Komutları
-
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
             try
@@ -57,8 +56,25 @@ namespace _21AralıkRestoran
             }
             catch 
             {
-                MessageBox.Show("Kategori ID veya adı geçersiz.", "HATA");
+                MessageBox.Show("Geçerli bir ID değeri için satır seçiniz.", "HATA");
             }
         }//Guncelle Komutları
+        private void dgvKategori_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dgvKategori.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtKategoriAdi.Text = dgvKategori.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            txtID.Clear();
+            txtKategoriAdi.Clear();
+        }
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            kategori ent = new kategori();
+            ent.ID = int.Parse(txtID.Text);
+           BLKategori.KategoriSil (ent);
+            KategoriListele();
+        }
     }
 }

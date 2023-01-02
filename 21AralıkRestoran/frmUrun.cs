@@ -28,9 +28,7 @@ namespace _21AralıkRestoran
         } //Ürün Listele metodu
         public void KategorileriCekme()
         {
-            //Kategorileri Çekme
-         SqlConnection bgl = new SqlConnection("Data Source=DESKTOP-D5V0N0E;Initial Catalog=RestoranTakip;Integrated Security=True");
-        SqlCommand komut = new SqlCommand("select * from Kategoriler;", bgl);
+            SqlCommand komut = new SqlCommand("select * from Kategoriler where Durum=1", Baglanti.bgl);
             SqlDataAdapter da = new SqlDataAdapter(komut);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -38,6 +36,7 @@ namespace _21AralıkRestoran
             cmbKategori.DisplayMember = "KategoriAdi";
             cmbKategori.DataSource = dt;
         } //Combobox a kategorilerin value değeri id , display değeri adi gösterme metodu
+
         private void btnEkle_Click(object sender, EventArgs e)
         {
             try
@@ -63,15 +62,79 @@ namespace _21AralıkRestoran
         } //Comboboxa ve data gride verilerin çekilmesi metodlarının Form açılırken çalışması
         private void btnGüncelle_Click(object sender, EventArgs e)
         {
-            urun ent = new urun();
-            ent.ID = int.Parse(txtID.Text);
-            ent.Adi=txtAdi.Text;
-            ent.KategoriID=((int)cmbKategori.SelectedValue);
-            ent.Fiyati=int.Parse(txtFiyat.Text);
-            ent.Stok=int.Parse(txtStok.Text);
-            ent.SevkiyatTarihi=DateTime.Parse(dtpTarih.Text);
-            BLUrun.BLUrunGuncelle(ent);
-            UrunListele();
-        } //Ürün güncelleme komutları
-    }
+            try
+            {
+                urun ent = new urun();
+                ent.ID = int.Parse(txtID.Text);
+                ent.Adi = txtAdi.Text;
+                ent.KategoriID = ((int)cmbKategori.SelectedValue);
+                ent.Fiyati = decimal.Parse(txtFiyat.Text);
+                ent.Stok = int.Parse(txtStok.Text);
+                ent.SevkiyatTarihi = DateTime.Parse(dtpTarih.Text);
+                BLUrun.BLUrunGuncelle(ent);
+                UrunListele();
+            }
+            catch
+            {
+                MessageBox.Show("Geçerli bir ID değeri için satır seçiniz.", "HATA");
+            }
+
+            } //Ürün güncelleme komutları
+
+        private void dgvUrunler_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dgvUrunler.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtAdi.Text = dgvUrunler.Rows[e.RowIndex].Cells[1].Value.ToString();
+            cmbKategori.SelectedValue = dgvUrunler.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtFiyat.Text = dgvUrunler.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtStok.Text = dgvUrunler.Rows[e.RowIndex].Cells[4].Value.ToString();
+            dtpTarih.Text = dgvUrunler.Rows[e.RowIndex].Cells[5].Value.ToString();
+        } // data gridde seçilen verileri textboxa aktarma
+
+        private void txtUrunAra_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUrunAra.Text == "")
+            {
+                dgvUrunler.ClearSelection();
+                dgvUrunler.FirstDisplayedScrollingRowIndex = dgvUrunler.Rows[1].Index;
+            }
+            else
+            {
+                try
+                {
+                    foreach (DataGridViewRow row in dgvUrunler.Rows)
+                    {
+                        if (row.Cells[1].Value.ToString().ToLower().StartsWith(txtUrunAra.Text.ToString().Trim().ToLower()))
+                        {
+                            row.Selected = true; dgvUrunler.FirstDisplayedScrollingRowIndex = row.Index; break;
+                        }
+                    }
+                }
+                catch (Exception) { }
+            }
+        } // ürün arama
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            txtID.Clear();
+            txtAdi.Clear();
+            txtFiyat.Clear();
+            txtStok.Clear();
+        } // textboxları temizleme
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                urun ent = new urun();
+                ent.ID = int.Parse(txtID.Text);
+                BLUrun.BLUrunSil(ent);
+                UrunListele();
+            }
+            catch
+            {
+                MessageBox.Show("Geçerli bir ID değeri için satır seçiniz.", "HATA");
+            }
+        } // Silme butonu
+    } 
 }

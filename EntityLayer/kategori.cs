@@ -11,6 +11,7 @@ namespace EntityLayer
         public int ID { get; set; }
         
         public string KategoriAdi { get; set; }
+        public string Durum { get; set; }
 
     }
 }

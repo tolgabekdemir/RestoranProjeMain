@@ -72,7 +72,7 @@
             this.gbKategori.Controls.Add(this.btnEkle);
             this.gbKategori.Controls.Add(this.txtID);
             this.gbKategori.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbKategori.Location = new System.Drawing.Point(879, 111);
+            this.gbKategori.Location = new System.Drawing.Point(879, 116);
             this.gbKategori.Name = "gbKategori";
             this.gbKategori.Size = new System.Drawing.Size(371, 243);
             this.gbKategori.TabIndex = 32;
@@ -88,6 +88,7 @@
             this.btnTemizle.TabIndex = 9;
             this.btnTemizle.Text = "TEMİZLE";
             this.btnTemizle.UseVisualStyleBackColor = false;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // btnGuncelle
             // 
@@ -118,6 +119,7 @@
             this.btnSil.TabIndex = 10;
             this.btnSil.Text = "SİL";
             this.btnSil.UseVisualStyleBackColor = false;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnEkle
             // 
@@ -134,6 +136,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(177, 29);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(171, 34);
             this.txtID.TabIndex = 1;
             // 
@@ -161,12 +164,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKategori.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKategori.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.dgvKategori.Location = new System.Drawing.Point(12, 111);
+            this.dgvKategori.Location = new System.Drawing.Point(12, 47);
             this.dgvKategori.Name = "dgvKategori";
             this.dgvKategori.RowHeadersWidth = 51;
             this.dgvKategori.RowTemplate.Height = 24;
-            this.dgvKategori.Size = new System.Drawing.Size(861, 550);
+            this.dgvKategori.Size = new System.Drawing.Size(861, 614);
             this.dgvKategori.TabIndex = 33;
+            this.dgvKategori.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategori_CellClick);
             // 
             // frmKategori
             // 

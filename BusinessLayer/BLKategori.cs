@@ -30,5 +30,10 @@ namespace BusinessLayer
             }
             return -1;
         }  //Kategori Güncelle
+        public static int KategoriSil(kategori p)
+        {
+                return DalKategori.KategoriSil(p);
+        }  //Kategori Sil
+
     }
 }

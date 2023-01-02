@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnUrunler = new System.Windows.Forms.Button();
-            this.btnPersoneller = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.btnRaporlar = new System.Windows.Forms.Button();
             this.btnKategoriler = new System.Windows.Forms.Button();
             this.btnSiparisler = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.btnUrunler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
             this.btnUrunler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUrunler.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnUrunler.Location = new System.Drawing.Point(322, 232);
+            this.btnUrunler.Location = new System.Drawing.Point(141, 281);
             this.btnUrunler.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.btnUrunler.Name = "btnUrunler";
             this.btnUrunler.Size = new System.Drawing.Size(304, 120);
@@ -57,22 +57,23 @@
             this.btnUrunler.UseVisualStyleBackColor = false;
             this.btnUrunler.Click += new System.EventHandler(this.btnUrunler_Click);
             // 
-            // btnPersoneller
+            // btnAdmin
             // 
-            this.btnPersoneller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(181)))));
-            this.btnPersoneller.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPersoneller.FlatAppearance.BorderSize = 0;
-            this.btnPersoneller.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(160)))));
-            this.btnPersoneller.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
-            this.btnPersoneller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPersoneller.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPersoneller.Location = new System.Drawing.Point(322, 367);
-            this.btnPersoneller.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
-            this.btnPersoneller.Name = "btnPersoneller";
-            this.btnPersoneller.Size = new System.Drawing.Size(304, 120);
-            this.btnPersoneller.TabIndex = 31;
-            this.btnPersoneller.Text = "Personeller";
-            this.btnPersoneller.UseVisualStyleBackColor = false;
+            this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(181)))));
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.FlatAppearance.BorderSize = 0;
+            this.btnAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(160)))));
+            this.btnAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
+            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdmin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAdmin.Location = new System.Drawing.Point(476, 504);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(304, 120);
+            this.btnAdmin.TabIndex = 31;
+            this.btnAdmin.Text = "Admin Paneli";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnRaporlar
             // 
@@ -83,7 +84,7 @@
             this.btnRaporlar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
             this.btnRaporlar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRaporlar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnRaporlar.Location = new System.Drawing.Point(648, 367);
+            this.btnRaporlar.Location = new System.Drawing.Point(809, 281);
             this.btnRaporlar.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.btnRaporlar.Name = "btnRaporlar";
             this.btnRaporlar.Size = new System.Drawing.Size(304, 120);
@@ -100,7 +101,7 @@
             this.btnKategoriler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
             this.btnKategoriler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKategoriler.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnKategoriler.Location = new System.Drawing.Point(648, 232);
+            this.btnKategoriler.Location = new System.Drawing.Point(475, 281);
             this.btnKategoriler.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.btnKategoriler.Name = "btnKategoriler";
             this.btnKategoriler.Size = new System.Drawing.Size(304, 120);
@@ -118,13 +119,14 @@
             this.btnSiparisler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
             this.btnSiparisler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSiparisler.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSiparisler.Location = new System.Drawing.Point(322, 97);
+            this.btnSiparisler.Location = new System.Drawing.Point(314, 43);
             this.btnSiparisler.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.btnSiparisler.Name = "btnSiparisler";
             this.btnSiparisler.Size = new System.Drawing.Size(304, 120);
             this.btnSiparisler.TabIndex = 28;
             this.btnSiparisler.Text = "Siparişler";
             this.btnSiparisler.UseVisualStyleBackColor = false;
+            this.btnSiparisler.Click += new System.EventHandler(this.btnSiparisler_Click);
             // 
             // btnMasalar
             // 
@@ -135,7 +137,7 @@
             this.btnMasalar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(209)))));
             this.btnMasalar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMasalar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnMasalar.Location = new System.Drawing.Point(648, 97);
+            this.btnMasalar.Location = new System.Drawing.Point(648, 43);
             this.btnMasalar.Margin = new System.Windows.Forms.Padding(15, 14, 15, 14);
             this.btnMasalar.Name = "btnMasalar";
             this.btnMasalar.Size = new System.Drawing.Size(304, 120);
@@ -173,18 +175,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnUrunler);
-            this.Controls.Add(this.btnPersoneller);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnRaporlar);
             this.Controls.Add(this.btnKategoriler);
             this.Controls.Add(this.btnSiparisler);
             this.Controls.Add(this.btnMasalar);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAnaSayfa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ana Sayfa";
+            this.Load += new System.EventHandler(this.frmAnaSayfa_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -193,7 +196,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnUrunler;
-        private System.Windows.Forms.Button btnPersoneller;
+        private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnRaporlar;
         private System.Windows.Forms.Button btnKategoriler;
         private System.Windows.Forms.Button btnSiparisler;

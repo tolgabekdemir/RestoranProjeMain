@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblUrunAra = new System.Windows.Forms.Label();
             this.txtUrunAra = new System.Windows.Forms.MaskedTextBox();
-            this.btnUrunAra = new System.Windows.Forms.Button();
             this.btnGüncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
@@ -70,16 +69,7 @@
             this.txtUrunAra.Name = "txtUrunAra";
             this.txtUrunAra.Size = new System.Drawing.Size(349, 30);
             this.txtUrunAra.TabIndex = 11;
-            // 
-            // btnUrunAra
-            // 
-            this.btnUrunAra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(181)))));
-            this.btnUrunAra.Location = new System.Drawing.Point(384, 61);
-            this.btnUrunAra.Name = "btnUrunAra";
-            this.btnUrunAra.Size = new System.Drawing.Size(59, 30);
-            this.btnUrunAra.TabIndex = 12;
-            this.btnUrunAra.Text = "Ara";
-            this.btnUrunAra.UseVisualStyleBackColor = false;
+            this.txtUrunAra.TextChanged += new System.EventHandler(this.txtUrunAra_TextChanged);
             // 
             // btnGüncelle
             // 
@@ -101,6 +91,7 @@
             this.btnSil.TabIndex = 10;
             this.btnSil.Text = "SİL";
             this.btnSil.UseVisualStyleBackColor = false;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnTemizle
             // 
@@ -111,6 +102,7 @@
             this.btnTemizle.TabIndex = 9;
             this.btnTemizle.Text = "TEMİZLE";
             this.btnTemizle.UseVisualStyleBackColor = false;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // btnEkle
             // 
@@ -163,6 +155,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(177, 29);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(171, 30);
             this.txtID.TabIndex = 1;
             // 
@@ -276,6 +269,7 @@
             this.dgvUrunler.RowTemplate.Height = 24;
             this.dgvUrunler.Size = new System.Drawing.Size(844, 551);
             this.dgvUrunler.TabIndex = 28;
+            this.dgvUrunler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellClick);
             // 
             // frmUrun
             // 
@@ -285,7 +279,6 @@
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.dgvUrunler);
             this.Controls.Add(this.gbUrun);
-            this.Controls.Add(this.btnUrunAra);
             this.Controls.Add(this.txtUrunAra);
             this.Controls.Add(this.lblUrunAra);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -306,7 +299,6 @@
         #endregion
         private System.Windows.Forms.Label lblUrunAra;
         private System.Windows.Forms.MaskedTextBox txtUrunAra;
-        private System.Windows.Forms.Button btnUrunAra;
         private System.Windows.Forms.Button btnGüncelle;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnTemizle;

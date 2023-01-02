@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLKategori.cs" />
+    <Compile Include="BLLog.cs" />
+    <Compile Include="BLPersonel.cs" />
     <Compile Include="BLUrun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

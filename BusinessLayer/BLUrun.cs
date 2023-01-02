@@ -30,5 +30,10 @@ namespace BusinessLayer
             }
             return -1;
         } //Ürün Güncelle
+        public static int BLUrunSil(urun p)
+        {
+            //sadece 1 kayıt silmesi için şart eklenebilir
+            return DalUrun.UrunSil(p);
+        } //Urun Sil
     }
 }

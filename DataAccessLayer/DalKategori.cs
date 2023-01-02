@@ -13,7 +13,7 @@ namespace DataAccessLayer
     {//Crud metotları olştur oku güncelleme silme
         public static int KategoriEkle(kategori p)
         {
-            SqlCommand ekle = new SqlCommand("INSERT Kategoriler (KategoriAdi) VALUES (@adi);", Baglanti.bgl);
+            SqlCommand ekle = new SqlCommand("INSERT Kategoriler (KategoriAdi,Durum) VALUES (@adi,1);", Baglanti.bgl);
 
             if (ekle.Connection.State !=ConnectionState.Open)
             {
@@ -26,7 +26,7 @@ namespace DataAccessLayer
         public static List<kategori>KategoriListesi()
         {
             List<kategori> kategoriler = new List<kategori>();
-            SqlCommand listele = new SqlCommand("Select * from Kategoriler",Baglanti.bgl);
+            SqlCommand listele = new SqlCommand("Select * from Kategoriler where Durum=1",Baglanti.bgl);
             if(listele.Connection.State !=ConnectionState.Open)
             {
                 listele.Connection.Open();
@@ -41,7 +41,7 @@ namespace DataAccessLayer
             }
             dr.Close();
             return kategoriler;
-        } //Kategori Silme
+        } //Kategori Listele
         public static int KategoriGuncelle(kategori p)
         {
             SqlCommand guncelle = new SqlCommand("update Kategoriler set KategoriAdi=@p1 where ID=@p2", Baglanti.bgl);
@@ -53,5 +53,18 @@ namespace DataAccessLayer
             guncelle.Parameters.AddWithValue("@p2", p.ID);
             return guncelle.ExecuteNonQuery();
         } //Kategori Guncelle
+        public static int KategoriSil(kategori p)
+        {
+            SqlCommand sil = new SqlCommand("UPDATE Kategoriler SET Durum='0' WHERE ID=@ID;", Baglanti.bgl);
+            if (sil.Connection.State != ConnectionState.Open)//Bağlantı açık değilse aç
+            {
+                sil.Connection.Open();
+            }
+            sil.Parameters.AddWithValue("@ID", p.ID);
+
+
+            return sil.ExecuteNonQuery();
+
+        } //Kategori Sİlme
     }
 }

@@ -13,5 +13,6 @@ namespace EntityLayer
         public DateTime Tarih { get; set; }
         public string Islem { get; set; }
         public string IpAdresi { get; set; }
+        public string PersonelAdi { get; set; }
     }
 }
